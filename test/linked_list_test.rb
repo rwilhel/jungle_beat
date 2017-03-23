@@ -21,36 +21,39 @@ class LinkedListTest < Minitest::Test
     list = LinkedList.new
     list.append("doop")
     assert_equal Node, list.head.class
-    assert_equal "doop", list.head.data
   end
 
   def test_append_multiple_elements_works
     list = LinkedList.new
-    list.append("doop")
+    assert_equal "doop", list.append("doop")
+    assert_equal 1, list.count
     list.append("deep")
+    assert_equal 2, list.count
     assert_equal "doop deep", list.head.data + " " + list.head.next_node.data
   end
 
   def test_next_node
     list = LinkedList.new
-    list.head = Node.new("")
+    list.append("doop")
+    assert_nil list.head.next_node
+    list.append("deep")
     assert_nil list.head.next_node
   end
 
   def test_add_to_list_count
     list = LinkedList.new
     assert_equal 0, list.count 
+    list.append("doop")
+    assert_equal 1, list.count
   end
   
   def test_list_count_with_head
-    skip
     list = LinkedList.new
-    assert_equal 2, list.count
+    assert_equal 0, list.node_count
   end
 
   def test_list_to_string
-    head = Node.new("")
-    list = LinkedList.new(head)
+    list = LinkedList.new
     assert_equal "", list.to_string  
   end
 end

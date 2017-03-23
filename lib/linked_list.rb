@@ -1,22 +1,22 @@
 require 'pry'
 require './lib/node'
 class LinkedList
-
-  attr_accessor :head, :data
+  attr_reader :head
+  attr_accessor :data, :node_count
 
   def initialize(head = nil)
     @head = head
   end
 
-  def append(beat) 
+  def append(data) 
     if @head.nil?
-       return @head = Node.new(beat)  
+       return @head = Node.new(data)  
     end
     current_node = @head
     until current_node.next_node.nil?
       current_node = current_node.next_node
     end
-    current_node.next_node = Node.new(beat)
+    current_node.next_node = Node.new(data)
   end
 
   def count
@@ -29,7 +29,9 @@ class LinkedList
 
   def to_string
     @head.data
-    #navigate chain (until nil from append), 
+    until current_node.next_node.nil?
+      current_node = current_node.next_node
+    end
   end
 
 
