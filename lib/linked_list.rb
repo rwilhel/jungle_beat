@@ -2,7 +2,6 @@ require 'pry'
 require './lib/node'
 class LinkedList
   attr_reader :head
-  attr_accessor :data
 
   def initialize(head = nil)
     @head = head
@@ -10,7 +9,8 @@ class LinkedList
 
   def append(data) 
     if @head.nil?
-       return @head = Node.new(data)  
+       @head = Node.new(data)  
+      return data   
     end
     current_node = @head
     until current_node.next_node.nil?
