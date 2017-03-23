@@ -6,7 +6,6 @@ class LinkedList
   def initialize(head = nil)
     @head = head
   end
-
   def append(data) 
     if @head.nil?
        @head = Node.new(data)  
@@ -33,6 +32,8 @@ class LinkedList
     until current_node.next_node.nil?
       current_node = current_node.next_node
     end
+    current_node.next_node = Node.new(data)
+    data.to_string
   end
 
 #prepend: head, new node is next node 
