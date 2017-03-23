@@ -2,7 +2,7 @@ require 'pry'
 require './lib/node'
 class LinkedList
   attr_reader :head
-  attr_accessor :data, :node_count
+  attr_accessor :data
 
   def initialize(head = nil)
     @head = head
@@ -17,6 +17,7 @@ class LinkedList
       current_node = current_node.next_node
     end
     current_node.next_node = Node.new(data)
+    data
   end
 
   def count
@@ -33,7 +34,6 @@ class LinkedList
       current_node = current_node.next_node
     end
   end
-
 
 #prepend: head, new node is next node 
 end
