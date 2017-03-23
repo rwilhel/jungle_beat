@@ -28,7 +28,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "doop", list.append("doop")
     assert_equal 1, list.count
     list.append("deep")
-    assert_equal 2, list.count 
+    assert_equal 2, list.count
     assert_equal "doop deep", list.head.data + " " + list.head.next_node.data
   end
 
